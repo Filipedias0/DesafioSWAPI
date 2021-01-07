@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DesafioOpahIt</string>
+    <string name="btnPeople">People</string>
+    <string name="btnSpecies">Species</string>
+    <string name="contentStarWarsLogo" />
+    <string name="contentStarLogo" />
+    <string name="youngPad">My Young Padawan!</string>
+    <string name="sourceDescHelp">Help Button</string>
+    <string name="greetings">Greetings</string>
+    <string name="contentLogo">Logo Star Wars</string>
+</resources>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_star_wars"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/youngPad"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnSpecies"
+        android:layout_width="113dp"
+        android:layout_height="55dp"
+        android:text="@string/btnSpecies"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/cardview_shadow_end_color"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnPeople"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnPeople"
+        app:layout_constraintTop_toBottomOf="@+id/btnPeople"
+        app:strokeColor="#FCDF2B"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/btnPeople"
+        android:layout_width="113dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/btnPeople"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/cardview_shadow_end_color"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:strokeColor="#FCDF2B"
+        app:strokeWidth="2dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/greetings"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <ImageView
+        android:id="@+id/btnHelp"
+        android:layout_width="67dp"
+        android:layout_height="51dp"
+        android:contentDescription="@string/sourceDescHelp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"
+        app:srcCompat="@drawable/ic_baseline_help_outline_24" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="257dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/contentLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_star_wars" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
