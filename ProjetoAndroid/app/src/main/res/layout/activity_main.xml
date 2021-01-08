@@ -26,18 +26,19 @@
         android:textColor="@color/white"
         app:backgroundTint="@color/cardview_shadow_end_color"
         app:cornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/btnPeople"
+        app:layout_constraintEnd_toEndOf="@+id/btnSearchPeople"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnPeople"
-        app:layout_constraintTop_toBottomOf="@+id/btnPeople"
+        app:layout_constraintStart_toStartOf="@+id/btnSearchPeople"
+        app:layout_constraintTop_toBottomOf="@+id/btnSearchPeople"
         app:strokeColor="#FCDF2B"
         app:strokeWidth="2dp" />
 
     <Button
-        android:id="@+id/btnPeople"
+        android:id="@+id/btnSearchPeople"
         android:layout_width="113dp"
         android:layout_height="55dp"
         android:layout_marginTop="20dp"
+        android:onClick="btnPeopleIntent"
         android:text="@string/btnPeople"
         android:textColor="@color/white"
         app:backgroundTint="@color/cardview_shadow_end_color"
@@ -60,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <ImageView
-        android:id="@+id/btnHelp"
+        android:id="@+id/btnHelpPerson"
         android:layout_width="67dp"
         android:layout_height="51dp"
         android:contentDescription="@string/sourceDescHelp"

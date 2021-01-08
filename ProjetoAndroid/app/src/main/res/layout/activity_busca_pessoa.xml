@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BuscaPessoaActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back_star_wars"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/btnHomePerson"
+            android:layout_width="113dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/btnBack"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/cardview_shadow_end_color"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/editTextInfoPerson"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="@+id/editTextInfoPerson"
+            app:layout_constraintTop_toBottomOf="@+id/editTextInfoPerson"
+            app:strokeColor="#FCDF2B"
+            app:strokeWidth="2dp" />
+
+        <Button
+            android:id="@+id/btnSearchPeople"
+            android:layout_width="113dp"
+            android:layout_height="55dp"
+            android:text="@string/btnBuscaPessoa"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/cardview_shadow_end_color"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+            app:strokeColor="#FCDF2B"
+            app:strokeWidth="2dp" />
+
+        <ImageView
+            android:id="@+id/btnHelpPerson"
+            android:layout_width="67dp"
+            android:layout_height="51dp"
+            android:contentDescription="@string/sourceDescHelp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnHomePerson"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.953"
+            app:layout_constraintStart_toEndOf="@+id/btnHomePerson"
+            app:layout_constraintTop_toTopOf="@+id/btnHomePerson"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/ic_baseline_help_outline_24" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:autofillHints=""
+            android:backgroundTint="@color/white"
+            android:contentDescription="@string/searchCharacterContent"
+            android:cursorVisible="true"
+            android:ems="10"
+            android:hint="@string/hintNomePessoa"
+            android:inputType="textPersonName"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/golddDark"
+            android:textColorHint="@color/gold"
+            android:textColorLink="@color/golddDark"
+            app:layout_constraintEnd_toEndOf="@+id/gifImageView"
+            app:layout_constraintStart_toStartOf="@+id/gifImageView"
+            app:layout_constraintTop_toBottomOf="@+id/gifImageView" />
+
+        <EditText
+            android:id="@+id/editTextInfoPerson"
+            android:layout_width="216dp"
+            android:layout_height="311dp"
+            android:layout_marginTop="20dp"
+            android:autofillHints=""
+            android:contentDescription="@string/inforPersonContent"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSearchPeople"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView"
+            android:layout_width="256dp"
+            android:layout_height="174dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/starwars_people"
+            android:contentDescription="@string/inforPersonContent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/starwars_people" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

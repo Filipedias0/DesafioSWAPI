@@ -8,4 +8,10 @@
     <string name="sourceDescHelp">Help Button</string>
     <string name="greetings">Greetings</string>
     <string name="contentLogo">Logo Star Wars</string>
+    <string name="personDuel">light saber duel</string>
+    <string name="hintNomePessoa">Search for the character</string>
+    <string name="btnBuscaPessoa">Search</string>
+    <string name="inforPersonContent">Person informations</string>
+    <string name="searchCharacterContent">Search for the character</string>
+    <string name="btnBack">Return to title </string>
 </resources>
