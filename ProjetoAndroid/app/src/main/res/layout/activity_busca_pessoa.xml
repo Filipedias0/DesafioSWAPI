@@ -23,10 +23,11 @@
             app:backgroundTint="@color/cardview_shadow_end_color"
             app:cornerRadius="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/editTextInfoPerson"
-            app:layout_constraintHorizontal_bias="0.51"
-            app:layout_constraintStart_toStartOf="@+id/editTextInfoPerson"
-            app:layout_constraintTop_toBottomOf="@+id/editTextInfoPerson"
+            app:layout_constraintEnd_toEndOf="@+id/textViewInfoPerson"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="@+id/textViewInfoPerson"
+            app:layout_constraintTop_toBottomOf="@+id/textViewInfoPerson"
+            app:layout_constraintVertical_bias="0.501"
             app:strokeColor="#FCDF2B"
             app:strokeWidth="2dp" />
 
@@ -34,13 +35,14 @@
             android:id="@+id/btnSearchPeople"
             android:layout_width="113dp"
             android:layout_height="55dp"
+            android:onClick="btnSearch"
             android:text="@string/btnBuscaPessoa"
             android:textColor="@color/white"
             app:backgroundTint="@color/cardview_shadow_end_color"
             app:cornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+            app:layout_constraintEnd_toEndOf="@+id/editTextPersonName"
+            app:layout_constraintStart_toStartOf="@+id/editTextPersonName"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPersonName"
             app:strokeColor="#FCDF2B"
             app:strokeWidth="2dp" />
 
@@ -49,16 +51,16 @@
             android:layout_width="67dp"
             android:layout_height="51dp"
             android:contentDescription="@string/sourceDescHelp"
-            app:layout_constraintBottom_toBottomOf="@+id/btnHomePerson"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.953"
-            app:layout_constraintStart_toEndOf="@+id/btnHomePerson"
-            app:layout_constraintTop_toTopOf="@+id/btnHomePerson"
-            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.515"
+            app:layout_constraintStart_toEndOf="@+id/textViewInfoPerson"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.976"
             app:srcCompat="@drawable/ic_baseline_help_outline_24" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/editTextPersonName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -78,15 +80,16 @@
             app:layout_constraintTop_toBottomOf="@+id/gifImageView" />
 
         <EditText
-            android:id="@+id/editTextInfoPerson"
-            android:layout_width="216dp"
-            android:layout_height="311dp"
-            android:layout_marginTop="20dp"
+            android:id="@+id/textViewInfoPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:autofillHints=""
+            android:clickable="false"
             android:contentDescription="@string/inforPersonContent"
+            android:editable="false"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -106,5 +109,18 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/starwars_people" />
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="67dp"
+            android:layout_height="51dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textViewInfoPerson"
+            app:layout_constraintHorizontal_bias="0.47"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.976"
+            app:srcCompat="@drawable/ic_baseline_home_24" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
