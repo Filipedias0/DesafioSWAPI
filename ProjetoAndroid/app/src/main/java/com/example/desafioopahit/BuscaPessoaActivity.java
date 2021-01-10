@@ -1,13 +1,25 @@
 package com.example.desafioopahit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Person;
+import android.content.Intent;
+import android.net.Credentials;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.desafioopahit.service.APICall;
 import com.example.desafioopahit.model.SearchPerson;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,59 +33,60 @@ public class BuscaPessoaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busca_pessoa);
+    }
+
+    RecyclerView recyclerView;
+    // list person
+    List<SearchPerson> personsList;
+
+    public void btnHome(View view){
+        ImageView btnHomePerson = findViewById(R.id.btnHomePerson);
+
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void btnSearch(View view){
 
         //Retrofit Builder
         TextView textViewInfoPerson = findViewById(R.id.textViewInfoPerson);
+        recyclerView = findViewById(R.id.recyclerView);
+        personsList = new ArrayList<>();
+
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://swapi.dev/api/") //ATENCAO esta url pode estar errada
+                .baseUrl("https://swapi.dev/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        //instance foir interface
+        //instance for interface
         APICall apiCall = retrofit.create(APICall.class);
 
-        Call<SearchPerson> call = apiCall.getData();
+        Call<JSONResponse> call = apiCall.getPerson();
 
-        call.enqueue(new Callback<SearchPerson>() {
+        call.enqueue(new Callback<JSONResponse>() {
             @Override
-            public void onResponse(Call<SearchPerson> call, Response<SearchPerson> response) {
+            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
 
-                //Checking for the response
                 if(response.code() != 200){
                     textViewInfoPerson.setText("Connection failed");
                     return;
                 }
 
-                // Get data into textview
-                String  jsony = "";
+                JSONResponse jsonResponse = response.body();
+                personsList = new ArrayList<SearchPerson>(new ArrayList(jsonResponse.getResults()));
 
-                jsony = "name= " + response.body().getName() +
-                        "\n height= " + response.body().getHeight() +
-                        "\n mass= " + response.body().getMass() +
-                        "\n hair color= " + response.body().getHair_color() +
-                        "\n skin color= " + response.body().getSkin_color() +
-                        "\n eye color= " + response.body().getEye_color() +
-                        "\n birth year= " + response.body().getBirth_year() +
-                        "\n gender= " + response.body().getGender() +
-                        "\n homeworld= " + response.body().getHomeworld() +
-                        "\n films= " + response.body().getFilms().toString() +
-                        "\n species= " + response.body().getSpecies().toString() +
-                        "\n vehicles= " + response.body().getVehicles().toString() +
-                        "\n starships= " + response.body().getStarships().toString();      // is completed
-
-                textViewInfoPerson.append(jsony);
-
+                textViewInfoPerson.setText(personsList.toString());
             }
 
             @Override
-            public void onFailure(Call<SearchPerson> call, Throwable t) {
-
+            public void onFailure(Call<JSONResponse> call, Throwable t) {
+                textViewInfoPerson.setText(t.toString());
+                return;
             }
         });
-    }
-
-    public void btnSearch(View view){
 
     }
+
+
 
 }
