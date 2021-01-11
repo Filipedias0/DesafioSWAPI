@@ -1,8 +1,5 @@
 package com.example.desafioopahit.service;
 import com.example.desafioopahit.JSONResponse;
-import com.example.desafioopahit.model.SearchPerson;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -27,15 +24,24 @@ public interface APICall {
             @Query("page") int page
             );*/
 
-   /* @GET("people/{id}")
-    Call<SearchPerson> getPerson(
-            @Path("id") String id
+    /*@GET("people/{id}")
+    Call<JSONResponse> getPerson(
+            @Path("id") int id);*/
+
+
+    /*@GET("people/?search=Luke")
+    Call<JSONResponse> getPerson(
+
     );*/
 
-    @GET("people/ ")
-    Call<JSONResponse> getPerson();
+    @GET("people/")
+    Call<JSONResponse> getPerson(
+        @Query("search") String search
+    );
 
     @GET("species/ ")
-    Call<JSONResponse> getSpecies();
+    Call<JSONResponse> getSpecies(
+            @Query("search") String search
+    );
 
 }

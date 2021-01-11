@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,6 +49,8 @@ public class BuscaPessoaActivity extends AppCompatActivity {
 
         //Retrofit Builder
         TextView textViewInfoPerson = findViewById(R.id.textViewInfoPerson);
+        EditText editTextPersonName = findViewById(R.id.editTextPersonName);
+        String name = editTextPersonName.getText().toString();
         personsList = new ArrayList<>();
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -58,7 +61,7 @@ public class BuscaPessoaActivity extends AppCompatActivity {
         //instance for interface
         APICall apiCall = retrofit.create(APICall.class);
 
-        Call<JSONResponse> call = apiCall.getPerson();
+        Call<JSONResponse> call = apiCall.getPerson(name);
 
         call.enqueue(new Callback<JSONResponse>() {
             @Override
@@ -73,7 +76,6 @@ public class BuscaPessoaActivity extends AppCompatActivity {
 
                 //Tratar a array com for each para os atributos ficarem formatados de forma correta
                 personsList = new ArrayList<SearchPerson>(new ArrayList(jsonResponse.getResults()));
-
                 textViewInfoPerson.setText(personsList.toString());
             }
 

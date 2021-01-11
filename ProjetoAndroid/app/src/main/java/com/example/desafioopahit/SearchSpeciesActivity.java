@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,6 +42,8 @@ public class SearchSpeciesActivity extends AppCompatActivity {
 
 
         TextView textViewInfoSpecies = findViewById(R.id.textViewInfoSpecies);
+        EditText editTextSpeciesName = findViewById(R.id.editTextSpeciesName);
+        String name = editTextSpeciesName.getText().toString();
         speciesList = new ArrayList<>();
 
         //Retrofit Builder
@@ -52,7 +55,7 @@ public class SearchSpeciesActivity extends AppCompatActivity {
         //instance for interface
         APICall apiCall = retrofit.create(APICall.class);
         //get url
-        Call<JSONResponse> call = apiCall.getSpecies();
+        Call<JSONResponse> call = apiCall.getSpecies(name);
 
         call.enqueue(new Callback<JSONResponse>() {
             @Override
@@ -65,7 +68,6 @@ public class SearchSpeciesActivity extends AppCompatActivity {
 
                 JSONResponse jsonResponse = response.body();
                 speciesList = new ArrayList<SearchSpecies>(new ArrayList(jsonResponse.getResults()));
-
                 textViewInfoSpecies.setText(speciesList.toString());
             }
 
