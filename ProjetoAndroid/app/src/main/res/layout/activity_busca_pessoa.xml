@@ -4,13 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BuscaPessoaActivity">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/back_star_wars"
-        tools:context=".MainActivity">
+    tools:context=".BuscaPessoaActivity"
+    android:background="@drawable/back_star_wars">
 
         <Button
             android:id="@+id/btnSearchPeople"
@@ -47,11 +42,11 @@
             android:layout_marginTop="20dp"
             android:autofillHints=""
             android:backgroundTint="@color/white"
-            android:contentDescription="@string/searchCharacterContent"
             android:cursorVisible="true"
             android:ems="10"
             android:hint="@string/hintNomePessoa"
             android:inputType="textPersonName"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHighlight="@color/golddDark"
             android:textColorHint="@color/gold"
@@ -84,7 +79,7 @@
             android:layout_height="174dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/starwars_people"
-            android:contentDescription="@string/inforPersonContent"
+            android:contentDescription="@string/personImageContent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -94,6 +89,7 @@
             android:id="@+id/btnHomePerson"
             android:layout_width="67dp"
             android:layout_height="51dp"
+            android:contentDescription="@string/btnHomeContent"
             android:onClick="btnHome"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textViewInfoPerson"
@@ -102,19 +98,5 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.976"
             app:srcCompat="@drawable/ic_baseline_home_24" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="47dp"
-            android:layout_height="219dp"
-            android:background="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.995"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.991" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

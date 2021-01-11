@@ -20,4 +20,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void btnSpeciesIntent(View view){
+        Intent intent = new Intent(getApplicationContext(), SearchSpeciesActivity.class);
+        startActivity(intent);
+    }
+
 }

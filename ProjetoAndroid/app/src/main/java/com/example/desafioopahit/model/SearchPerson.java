@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class SearchPerson {
 
+
     //Java that is used as a JSON model(POJO)
     //Could use @SerializedName to have a diffent Var/Json name
     private String name, hair_color, skin_color, eye_color, birth_year, gender, homeworld;
@@ -65,7 +66,4 @@ public class SearchPerson {
     public String getSkin_color() {
         return skin_color;
     }
-//pode dar errado
-
-
 }

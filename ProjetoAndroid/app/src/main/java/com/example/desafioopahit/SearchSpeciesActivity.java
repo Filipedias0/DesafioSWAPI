@@ -1,23 +1,18 @@
 package com.example.desafioopahit;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.app.Person;
 import android.content.Intent;
-import android.net.Credentials;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.desafioopahit.service.APICall;
 import com.example.desafioopahit.model.SearchPerson;
+import com.example.desafioopahit.model.SearchSpecies;
+import com.example.desafioopahit.service.APICall;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -26,30 +21,29 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class BuscaPessoaActivity extends AppCompatActivity {
+public class SearchSpeciesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_busca_pessoa);
+        setContentView(R.layout.activity_search_species);
     }
 
     // list person
-    List<SearchPerson> personsList;
+    List<SearchSpecies> speciesList;
 
     public void btnHome(View view){
-        ImageView btnHomePerson = findViewById(R.id.btnHomePerson);
-
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
 
     public void btnSearch(View view){
 
-        //Retrofit Builder
-        TextView textViewInfoPerson = findViewById(R.id.textViewInfoPerson);
-        personsList = new ArrayList<>();
 
+        TextView textViewInfoSpecies = findViewById(R.id.textViewInfoSpecies);
+        speciesList = new ArrayList<>();
+
+        //Retrofit Builder
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://swapi.dev/api/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -57,29 +51,27 @@ public class BuscaPessoaActivity extends AppCompatActivity {
 
         //instance for interface
         APICall apiCall = retrofit.create(APICall.class);
-
-        Call<JSONResponse> call = apiCall.getPerson();
+        //get url
+        Call<JSONResponse> call = apiCall.getSpecies();
 
         call.enqueue(new Callback<JSONResponse>() {
             @Override
             public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
 
                 if(response.code() != 200){
-                    textViewInfoPerson.setText("Connection failed");
+                    textViewInfoSpecies.setText("Connection failed");
                     return;
                 }
 
                 JSONResponse jsonResponse = response.body();
+                speciesList = new ArrayList<SearchSpecies>(new ArrayList(jsonResponse.getResults()));
 
-                //Tratar a array com for each para os atributos ficarem formatados de forma correta
-                personsList = new ArrayList<SearchPerson>(new ArrayList(jsonResponse.getResults()));
-
-                textViewInfoPerson.setText(personsList.toString());
+                textViewInfoSpecies.setText(speciesList.toString());
             }
 
             @Override
             public void onFailure(Call<JSONResponse> call, Throwable t) {
-                textViewInfoPerson.setText(t.toString());
+                textViewInfoSpecies.setText(t.toString());
                 return;
             }
         });

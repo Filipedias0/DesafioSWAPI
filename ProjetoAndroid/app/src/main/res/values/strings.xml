@@ -14,4 +14,8 @@
     <string name="inforPersonContent">Person informations</string>
     <string name="searchCharacterContent">Search for the character</string>
     <string name="btnBack">Return to title </string>
+    <string name="hintSpeciesName">Search for a specie</string>
+    <string name="imageSpeciesContent">Baby yoda image</string>
+    <string name="personImageContent">Darth Vader and Obi Wan duel</string>
+    <string name="btnHomeContent">Home button</string>
 </resources>

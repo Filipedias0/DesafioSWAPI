@@ -35,4 +35,7 @@ public interface APICall {
     @GET("people/ ")
     Call<JSONResponse> getPerson();
 
+    @GET("species/ ")
+    Call<JSONResponse> getSpecies();
+
 }

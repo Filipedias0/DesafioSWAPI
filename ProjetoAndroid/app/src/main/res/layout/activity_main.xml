@@ -22,6 +22,7 @@
         android:id="@+id/btnSpecies"
         android:layout_width="113dp"
         android:layout_height="55dp"
+        android:onClick="btnSpeciesIntent"
         android:text="@string/btnSpecies"
         android:textColor="@color/white"
         app:backgroundTint="@color/cardview_shadow_end_color"
