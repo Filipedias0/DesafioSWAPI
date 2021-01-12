@@ -2,18 +2,15 @@ package com.example.desafioopahit;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Person;
 import android.content.Intent;
-import android.net.Credentials;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
+import com.example.desafioopahit.model.SearchSpecies;
 import com.example.desafioopahit.service.APICall;
 import com.example.desafioopahit.model.SearchPerson;
 
@@ -27,32 +24,33 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class BuscaPessoaActivity extends AppCompatActivity {
+public class SearchPersonActivity extends AppCompatActivity {
 
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busca_pessoa);
+
+        recyclerView = findViewById(R.id.recyclerView);
+
     }
 
     // list person
     List<SearchPerson> personsList;
 
     public void btnHome(View view){
-        ImageView btnHomePerson = findViewById(R.id.btnHomePerson);
-
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
 
     public void btnSearch(View view){
 
-        //Retrofit Builder
-        TextView textViewInfoPerson = findViewById(R.id.textViewInfoPerson);
         EditText editTextPersonName = findViewById(R.id.editTextPersonName);
         String name = editTextPersonName.getText().toString();
         personsList = new ArrayList<>();
 
+        //Retrofit Builder
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://swapi.dev/api/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -68,24 +66,75 @@ public class BuscaPessoaActivity extends AppCompatActivity {
             public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
 
                 if(response.code() != 200){
-                    textViewInfoPerson.setText("Connection failed");
+                    //inserir text view
                     return;
                 }
 
                 JSONResponse jsonResponse = response.body();
+                personsList = new ArrayList<>(Arrays.asList(jsonResponse.getResults()));
 
-                //Tratar a array com for each para os atributos ficarem formatados de forma correta
-                personsList = new ArrayList<SearchPerson>(new ArrayList(jsonResponse.getResults()));
-                textViewInfoPerson.setText(personsList.toString());
+                PutDataIntoRecyclerView(personsList);
+                // List<SearchPerson> persons = response.body();
+
             }
 
             @Override
             public void onFailure(Call<JSONResponse> call, Throwable t) {
-                textViewInfoPerson.setText(t.toString());
+                //inserir textview
                 return;
             }
         });
 
     }
+
+   /*public void speciesName(View view){
+
+        //Retrofit Builder
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://swapi.dev/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        //instance for interface
+        APICall apiCall = retrofit.create(APICall.class);
+
+        Call<SearchSpecies> callSpecies = apiCall.getSpecies(1);
+
+        callSpecies.enqueue(new Callback<SearchSpecies>() {
+            @Override
+            public void onResponse(Call<SearchSpecies> call, Response<SearchSpecies> response) {
+                if(response.code() != 200){
+                    System.out.println("Conection failed");
+                    return;
+                }
+
+                //get the data into the String
+                String jsony = "";
+                jsony = "Race= " + response.body().getName();
+
+                //textView5.append(jsony);
+
+            }
+
+            @Override
+            public void onFailure(Call<SearchSpecies> call, Throwable t) {
+
+            }
+        });
+
+
+    }*/
+
+    private void PutDataIntoRecyclerView(List<SearchPerson> personsList) {
+        Adaptery adaptery = new Adaptery(this, personsList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adaptery);
+    }
+
+    private void favorite(){
+
+    }
+
 
 }

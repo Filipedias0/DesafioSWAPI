@@ -1,18 +1,16 @@
 package com.example.desafioopahit.model;
 
 
-import java.util.ArrayList;
-
 public class SearchPerson {
 
 
     //Java that is used as a JSON model(POJO)
     //Could use @SerializedName to have a diffent Var/Json name
     private String name, hair_color, skin_color, eye_color, birth_year, gender, homeworld;
-    private ArrayList<String> films;
-    private ArrayList<String> species;
-    private ArrayList<String> vehicles;
-    private ArrayList<String> starships;
+    private String[] filmsUrl;
+    private String[] species;
+    private String[] vehicles;
+    private String[] starships;
     private int height, mass;
 
     public String getName() {
@@ -39,19 +37,19 @@ public class SearchPerson {
         return homeworld;
     }
 
-    public ArrayList<String> getFilms() {
-        return films;
+    public String[] getFilms() {
+        return filmsUrl;
     }
 
-    public ArrayList<String> getSpecies() {
+    public String[] getSpecies() {
         return species;
     }
 
-    public ArrayList<String> getVehicles() {
+    public String[] getVehicles() {
         return vehicles;
     }
 
-    public ArrayList<String> getStarships() {
+    public String[] getStarships() {
         return starships;
     }
 

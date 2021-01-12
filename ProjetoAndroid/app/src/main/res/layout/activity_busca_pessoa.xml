@@ -4,8 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BuscaPessoaActivity"
-    android:background="@drawable/back_star_wars">
+    android:background="@drawable/back_star_wars"
+    android:onClick="favorite"
+    tools:context=".SearchPersonActivity">
+
+        <Button
+            android:id="@+id/btnFavorite"
+            android:layout_width="113dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="8dp"
+            android:onClick="btnSearch"
+            android:text="@string/btnFavorite"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/cardview_shadow_end_color"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.976"
+            app:strokeColor="#FCDF2B"
+            app:strokeWidth="2dp" />
 
         <Button
             android:id="@+id/btnSearchPeople"
@@ -21,19 +39,6 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextPersonName"
             app:strokeColor="#FCDF2B"
             app:strokeWidth="2dp" />
-
-        <ImageView
-            android:id="@+id/btnHelpPerson"
-            android:layout_width="67dp"
-            android:layout_height="51dp"
-            android:contentDescription="@string/sourceDescHelp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.515"
-            app:layout_constraintStart_toEndOf="@+id/textViewInfoPerson"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.976"
-            app:srcCompat="@drawable/ic_baseline_help_outline_24" />
 
         <EditText
             android:id="@+id/editTextPersonName"
@@ -55,24 +60,6 @@
             app:layout_constraintStart_toStartOf="@+id/gifImageView"
             app:layout_constraintTop_toBottomOf="@+id/gifImageView" />
 
-        <EditText
-            android:id="@+id/textViewInfoPerson"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:autofillHints=""
-            android:clickable="false"
-            android:contentDescription="@string/inforPersonContent"
-            android:editable="false"
-            android:ems="10"
-            android:gravity="start|top"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnSearchPeople"
-            app:layout_constraintVertical_bias="0.0" />
-
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView"
             android:layout_width="256dp"
@@ -92,11 +79,19 @@
             android:contentDescription="@string/btnHomeContent"
             android:onClick="btnHome"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textViewInfoPerson"
-            app:layout_constraintHorizontal_bias="0.47"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.976"
             app:srcCompat="@drawable/ic_baseline_home_24" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="167dp"
+            android:layout_height="260dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/btnSearchPeople"
+            app:layout_constraintStart_toStartOf="@+id/btnSearchPeople"
+            app:layout_constraintTop_toBottomOf="@+id/btnSearchPeople"
+            app:layout_constraintVertical_bias="0.184" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

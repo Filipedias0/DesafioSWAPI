@@ -13,7 +13,7 @@
         android:theme="@style/Theme.DesafioOpahIt">
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".SearchSpeciesActivity" />
-        <activity android:name=".BuscaPessoaActivity" />
+        <activity android:name=".SearchPersonActivity" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

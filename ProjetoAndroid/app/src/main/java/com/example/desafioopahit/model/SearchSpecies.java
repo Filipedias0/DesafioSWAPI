@@ -7,10 +7,10 @@ public class SearchSpecies {
     //Java that is used as a JSON model(POJO)
     //Could use @SerializedName to have a diffent Var/Json name
     private String name, classification, designation, skins_colors, hair_colors, eye_colors,
-           homeworld, language;
+            homeworld, language;
     private int average_height,  average_lifespan;
-    private ArrayList<String> people;
-    private ArrayList<String> films;
+    private String[] people;
+    private String[] films;
     private int height, mass;
 
     public String getName() {
@@ -53,11 +53,11 @@ public class SearchSpecies {
         return average_lifespan;
     }
 
-    public ArrayList<String> getPeople() {
+    public String[] getPeople() {
         return people;
     }
 
-    public ArrayList<String> getFilms() {
+    public String[] getFilms() {
         return films;
     }
 

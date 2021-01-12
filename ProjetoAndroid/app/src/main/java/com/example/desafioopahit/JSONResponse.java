@@ -1,18 +1,15 @@
 package com.example.desafioopahit;
 
-import android.text.TextUtils;
-
 import com.example.desafioopahit.model.SearchPerson;
 
-import java.io.Serializable;
-import java.util.ArrayList;
+public class JSONResponse {
 
-public class JSONResponse<T> {
+    //trocar o nome
+    private   SearchPerson[] results;
 
-    private  ArrayList<T> results;
-
-    public ArrayList<T> getResults() {
+    public SearchPerson[] getResults() {
         return results;
     }
+
 }
 
