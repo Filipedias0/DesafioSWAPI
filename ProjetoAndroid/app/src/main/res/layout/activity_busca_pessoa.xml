@@ -5,25 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back_star_wars"
-    android:onClick="favorite"
     tools:context=".SearchPersonActivity">
-
-        <Button
-            android:id="@+id/btnFavorite"
-            android:layout_width="113dp"
-            android:layout_height="55dp"
-            android:layout_marginEnd="8dp"
-            android:onClick="btnSearch"
-            android:text="@string/btnFavorite"
-            android:textColor="@color/white"
-            app:backgroundTint="@color/cardview_shadow_end_color"
-            app:cornerRadius="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.976"
-            app:strokeColor="#FCDF2B"
-            app:strokeWidth="2dp" />
 
         <Button
             android:id="@+id/btnSearchPeople"

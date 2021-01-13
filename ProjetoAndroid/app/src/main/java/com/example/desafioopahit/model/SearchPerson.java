@@ -29,7 +29,7 @@ public class SearchPerson {
         return birth_year;
     }
 
-    public String getGender() {
+    public String getGener() {
         return gender;
     }
 

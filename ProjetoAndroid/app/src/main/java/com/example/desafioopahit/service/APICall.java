@@ -31,7 +31,7 @@ public interface APICall {
 
     @GET("species/{id}")
     Call<SearchSpecies> getSpeciesId(
-            @Path("id") int id
+            @Path("id") String id
     );
 
     @GET("people/")

@@ -9,8 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.example.desafioopahit.model.SearchPerson;
-import com.example.desafioopahit.model.SearchSpecies;
 
 import java.util.List;
 
@@ -18,6 +18,10 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
 
     private Context mContext;
     private List<SearchPerson> personsList;
+
+
+
+
 
     public Adaptery(Context mContext, List<SearchPerson> persons) {
         this.mContext = mContext;
@@ -37,15 +41,28 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.name.setText(personsList.get(position).getName());
+        holder.hair_color.setText("Hair color: "+ personsList.get(position).getHair_color());
+        holder.skin_color.setText("Skin color: "+ personsList.get(position).getSkin_color());
+
+
+
         String[] speciesUrl = personsList.get(position).getSpecies();
 
+        String url;
         if (speciesUrl.length == 0){
-            holder.specie.setText("Human"+"\n");
+            holder.specie.setText("Jedi");
         }else {
             for (String specie : speciesUrl) {
 
-                holder.specie.append(specie + "\n");
+                holder.specie.append(specie);
+                 url = specie;
+
+                 //holder.specie.append(url.substring(29,30));
+
             }
+
+            //http://swapi.dev/api/species/*28*2*29*/
+
         }
 
     }
@@ -60,12 +77,17 @@ public class Adaptery extends RecyclerView.Adapter<Adaptery.MyViewHolder> {
 
         TextView name;
         TextView specie;
+        TextView hair_color;
+        TextView skin_color;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            name = itemView.findViewById(R.id.textView2);
-            specie = itemView.findViewById(R.id.textView4);
+            name = itemView.findViewById(R.id.textViewName);
+            specie = itemView.findViewById(R.id.textViewSpecie);
+            hair_color = itemView.findViewById(R.id.textViewHairColor);
+            skin_color = itemView.findViewById(R.id.textViewEyeColor);
+
         }
     }
 }

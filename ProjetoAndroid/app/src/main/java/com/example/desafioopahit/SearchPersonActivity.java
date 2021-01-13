@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +16,7 @@ import com.example.desafioopahit.model.SearchSpecies;
 import com.example.desafioopahit.service.APICall;
 import com.example.desafioopahit.model.SearchPerson;
 
+import java.lang.reflect.Executable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -87,54 +90,10 @@ public class SearchPersonActivity extends AppCompatActivity {
 
     }
 
-   /*public void speciesName(View view){
-
-        //Retrofit Builder
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://swapi.dev/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        //instance for interface
-        APICall apiCall = retrofit.create(APICall.class);
-
-        Call<SearchSpecies> callSpecies = apiCall.getSpecies(1);
-
-        callSpecies.enqueue(new Callback<SearchSpecies>() {
-            @Override
-            public void onResponse(Call<SearchSpecies> call, Response<SearchSpecies> response) {
-                if(response.code() != 200){
-                    System.out.println("Conection failed");
-                    return;
-                }
-
-                //get the data into the String
-                String jsony = "";
-                jsony = "Race= " + response.body().getName();
-
-                //textView5.append(jsony);
-
-            }
-
-            @Override
-            public void onFailure(Call<SearchSpecies> call, Throwable t) {
-
-            }
-        });
-
-
-    }*/
-
     private void PutDataIntoRecyclerView(List<SearchPerson> personsList) {
         Adaptery adaptery = new Adaptery(this, personsList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adaptery);
     }
-
-    private void favorite(){
-
-    }
-
 
 }
